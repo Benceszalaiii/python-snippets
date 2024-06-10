@@ -1,0 +1,21 @@
+{
+  "name": "python-snippets-agazati",
+  "displayName": "Python snippets for Ágazati",
+  "description": "All the snippets you need to make your life easier",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.58.0"
+  },
+  "repository": "https://github.com/Benceszalaiii/python-snippets",
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}
