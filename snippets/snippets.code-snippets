@@ -164,5 +164,29 @@
                   "    return filtered"
                 ],
                 "description": "Filter class"
+              },
+              "Read each line of file": {
+                "prefix": "readline",
+                "body": [
+                  "with open(\"${1:filename}.txt\", \"r\") as file:",
+                  "    result = []",
+                  "    content = file.readlines()",
+                  "    for line in content:",
+                  "        result.append(line)",
+                  "    print(result)"
+                ],
+                "description": "Read each line of file"
+              },
+              "Read lines and split ": {
+                "prefix": "readsplit",
+                "body": [
+                  "with open(\"file_name.txt\", \"r\") as file:",
+                  "    result = []",
+                  "    content = file.readlines()",
+                  "    for line in content:",
+                  "        result.append(line.split(\";\"))",
+                  "    print(result)"
+                ],
+                "description": "Read lines and split "
               }
 }
