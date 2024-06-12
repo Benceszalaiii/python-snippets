@@ -2,7 +2,7 @@
   "name": "python-snippets-agazati",
   "displayName": "Python snippets for Ágazati",
   "description": "All the snippets you need to make your life easier",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "engines": {
     "vscode": "^1.58.0"
   },
