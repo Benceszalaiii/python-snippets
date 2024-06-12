@@ -1,195 +1,211 @@
 {
-    "Define main with OOP": {
-        "prefix": "classmain",
-        "body": [
-          "import Megoldas from Megoldas",
-          "",
-          "def main() -> None:",
-          "  megoldas = Megoldas(\"${1:filename.txt}\")",
-          "",
-          "if __name__ == \"__main__\":",
-          "  main()"
-        ],
-        "description": "Define main with OOP"
-      },
-        "Define main without OOP": {
-            "prefix": "main",
-            "body": [
-            "def main() -> None:",
-            "  ${1:pass}",
-            "",
-            "if __name__ == \"__main__\":",
-            "  main()"
-            ],
-            "description": "Define main without OOP"
-        },
-        "Initialize megoldas class": {
-            "prefix": "classmegoldas",
-            "body": [
-              "from ${1:filelocation} import ${2:classname}",
-              " ",
-              "class Megoldas:",
-              "    lista: list[${2:importedclass}] = []",
-              "    def __init__(self, filename: str) -> None:",
-              "        with open(filename, \"r\") as file:",
-              "            for sor in file.splitlines()[1:]:   # Exclude the first line if it has headers",
-              "                self.lista.append(${2:importedclass}(sor))"
-            ],
-            "description": "Initialize megoldas class"
-          },
-          "Initialize individual class": {
-            "prefix": "class",
-            "body": [
-              "class ${1:classname}:",
-              "    def __init__(self, sor: str):",
-              "        data = sor.split(\"${2:separator}\")",
-              "        ${3:}"
-            ],
-            "description": "Initialize individual class"
-          },
-          "Sum of sequence function": {
-            "prefix": "algsum",
-            "body": [
-              "def sum(elements):",
-              "    s = 0 ",
-              "    for element in elements: ",
-              "        s += element ",
-              "    return s "
-            ],
-            "description": "Sum of sequence function"
-          },
-          "Sum of class property function": {
-            "prefix": "classsum",
-            "body": [
-              "def sum_of_class(self): ",
-              "    result = 0",
-              "    for member in self.${1:list}:",
-              "        result += member.${2:property}",
-              "    return result"
-            ],
-            "description": "Sum of class property function"
-          },
-          "Count of sequence function": {
-            "prefix": "algcount",
-            "body": [
-              "def count_elements(elements):",
-              "    counter = 0 # ",
-              "    for element in elemenets:",
-              "        if element == 5: ",
-              "            counter += 1 ",
-              "    return counter "
-            ],
-            "description": "Count of sequence function"
-          },
-          "Count of class property function": {
-            "prefix": "classcount",
-            "body": [
-              "def count_of_class(self):",
-              "    counter = 0",
-              "    for member in self.${1:lista}:",
-              "        if member.${2:property}:",
-              "            counter += 1",
-              "    return counter"
-            ],
-            "description": "Count of class property function"
-          },
-          "Minimum of sequence": {
-            "prefix": "algmin",
-            "body": [
-              "def min(elements):",
-              "    current_min = elements[0]",
-              "    for element in elements[1:]:",
-              "        if element < current_min:",
-              "            current_min = element",
-              "    return current_min"
-            ],
-            "description": "Minimum of sequence"
-          },
-          "Minimum of class": {
-            "prefix": "classmin",
-            "body": [
-              "def min_of_class_prop(self):",
-              "    result = self.${1:list}[0].${2:property}",
-              "    for member in self.${1:list}[1:]:",
-              "        if member.${2:property} < result.${2:property}:",
-              "            result = member",
-              "    return result"
-            ],
-            "description": "Minimum of class"
-          },
-            "Maximum of sequence": {
-                "prefix": "algmax",
-                "body": [
-                "def max(elements):",
-                "    current_max = elements[0]",
-                "    for element in elements[1:]:",
-                "        if element > current_max:",
-                "            current_max = element",
-                "    return current_max"
-                ],
-                "description": "Maximum of sequence"
-            },
-            "Maximum of class": {
-                "prefix": "classmax",
-                "body": [
-                "def max_of_class_prop(self):",
-                "    result = self.${1:list}[0].${2:property}",
-                "    for member in self.${1:list}[1:]:",
-                "        if member.${2:property} > result.${2:property}:",
-                "            result = member",
-                "    return result"
-                ],
-                "description": "Maximum of class"
-            },
-            "Filter sequence": {
-                "prefix": "algfilter",
-                "body": [
-                  "def filter_elements(elements):",
-                  "    filtered = [] ",
-                  "    for element in elements:",
-                  "        if element ${1:> 5}:",
-                  "            filtered.append(element)",
-                  "    return filtered"
-                ],
-                "description": "Filter sequence"
-              },
-              "Filter class": {
-                "prefix": "classfilter",
-                "body": [
-                  "def filter_class(self, condition): ",
-                  "    filtered = []",
-                  "    for member in self.list_of_class:",
-                  "        if member.property_to_check ${1:==} condition:",
-                  "            filtered.append(member)",
-                  "    return filtered"
-                ],
-                "description": "Filter class"
-              },
-              "Get statistics for class": {
-                "prefix": "getstat",
-                "body": [
-                  "@property",
-                  "def get_stat(self) -> dict[str, int]:",
-                  "    stat: dict[str, int] = {}",
-                  "    for e in self.lista:",
-                  "        if e.property in stat:",
-                  "            stat[e.property] += 1",
-                  "        else:",
-                  "            stat[e.property] = 1",
-                  "    return stat"
-                ],
-                "description": "Get statistics for class"
-              },
-              "Read statistics for class": {
-                "prefix": "readstat",
-                "body": [
-                  "@property",
-                  "def read_stat(self) -> str:",
-                  "    vissza: str = \"\"",
-                  "    for k, v in self.getstat.items():",
-                  "        vissza += f\"\\t{k} - {v} db\\n\"",
-                  "    return vissza"
-                ],
-                "description": "Read statistics for class"
-              }
+  "Define main with OOP": {
+    "prefix": "classmain",
+    "body": [
+      "import Megoldas from Megoldas",
+      "",
+      "def main() -> None:",
+      "  megoldas = Megoldas(\"${1:filename.txt}\")",
+      "",
+      "if __name__ == \"__main__\":",
+      "  main()"
+    ],
+    "description": "Define main with OOP"
+  },
+  "Define main without OOP": {
+    "prefix": "main",
+    "body": [
+      "def main() -> None:",
+      "  ${1:pass}",
+      "",
+      "if __name__ == \"__main__\":",
+      "  main()"
+    ],
+    "description": "Define main without OOP"
+  },
+  "Initialize megoldas class": {
+    "prefix": "classmegoldas",
+    "body": [
+      "from ${1:filelocation} import ${2:classname}",
+      " ",
+      "class Megoldas:",
+      "    lista: list[${2:importedclass}] = []",
+      "    def __init__(self, filename: str) -> None:",
+      "        with open(filename, \"r\") as file:",
+      "            for sor in file.splitlines()[1:]:   # Exclude the first line if it has headers",
+      "                self.lista.append(${2:importedclass}(sor))"
+    ],
+    "description": "Initialize megoldas class"
+  },
+  "Initialize individual class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:classname}:",
+      "    def __init__(self, sor: str):",
+      "        data = sor.split(\"${2:separator}\")",
+      "        ${3:}"
+    ],
+    "description": "Initialize individual class"
+  },
+  "Sum of sequence function": {
+    "prefix": "algsum",
+    "body": [
+      "def sum(elements):",
+      "    s = 0 ",
+      "    for element in elements: ",
+      "        s += element ",
+      "    return s "
+    ],
+    "description": "Sum of sequence function"
+  },
+  "Sum of class property function": {
+    "prefix": "classsum",
+    "body": [
+      "def sum_of_class(self): ",
+      "    result = 0",
+      "    for member in self.${1:list}:",
+      "        result += member.${2:property}",
+      "    return result"
+    ],
+    "description": "Sum of class property function"
+  },
+  "Count of sequence function": {
+    "prefix": "algcount",
+    "body": [
+      "def count_elements(elements):",
+      "    counter = 0 # ",
+      "    for element in elemenets:",
+      "        if element == 5: ",
+      "            counter += 1 ",
+      "    return counter "
+    ],
+    "description": "Count of sequence function"
+  },
+  "Count of class property function": {
+    "prefix": "classcount",
+    "body": [
+      "def count_of_class(self):",
+      "    counter = 0",
+      "    for member in self.${1:lista}:",
+      "        if member.${2:property}:",
+      "            counter += 1",
+      "    return counter"
+    ],
+    "description": "Count of class property function"
+  },
+  "Minimum of sequence": {
+    "prefix": "algmin",
+    "body": [
+      "def min(elements):",
+      "    current_min = elements[0]",
+      "    for element in elements[1:]:",
+      "        if element < current_min:",
+      "            current_min = element",
+      "    return current_min"
+    ],
+    "description": "Minimum of sequence"
+  },
+  "Minimum of class": {
+    "prefix": "classmin",
+    "body": [
+      "def min_of_class_prop(self):",
+      "    result = self.${1:list}[0].${2:property}",
+      "    for member in self.${1:list}[1:]:",
+      "        if member.${2:property} < result.${2:property}:",
+      "            result = member",
+      "    return result"
+    ],
+    "description": "Minimum of class"
+  },
+  "Maximum of sequence": {
+    "prefix": "algmax",
+    "body": [
+      "def max(elements):",
+      "    current_max = elements[0]",
+      "    for element in elements[1:]:",
+      "        if element > current_max:",
+      "            current_max = element",
+      "    return current_max"
+    ],
+    "description": "Maximum of sequence"
+  },
+  "Maximum of class": {
+    "prefix": "classmax",
+    "body": [
+      "def max_of_class_prop(self):",
+      "    result = self.${1:list}[0].${2:property}",
+      "    for member in self.${1:list}[1:]:",
+      "        if member.${2:property} > result.${2:property}:",
+      "            result = member",
+      "    return result"
+    ],
+    "description": "Maximum of class"
+  },
+  "Filter sequence": {
+    "prefix": "algfilter",
+    "body": [
+      "def filter_elements(elements):",
+      "    filtered = [] ",
+      "    for element in elements:",
+      "        if element ${1:> 5}:",
+      "            filtered.append(element)",
+      "    return filtered"
+    ],
+    "description": "Filter sequence"
+  },
+  "Filter class": {
+    "prefix": "classfilter",
+    "body": [
+      "def filter_class(self, condition): ",
+      "    filtered = []",
+      "    for member in self.list_of_class:",
+      "        if member.property_to_check ${1:==} condition:",
+      "            filtered.append(member)",
+      "    return filtered"
+    ],
+    "description": "Filter class"
+  },
+  "Get statistics for class": {
+    "prefix": "getstat",
+    "body": [
+      "@property",
+      "def get_stat(self) -> dict[str, int]:",
+      "    stat: dict[str, int] = {}",
+      "    for e in self.lista:",
+      "        if e.property in stat:",
+      "            stat[e.property] += 1",
+      "        else:",
+      "            stat[e.property] = 1",
+      "    return stat"
+    ],
+    "description": "Get statistics for class"
+  },
+  "Read statistics for class": {
+    "prefix": "readstat",
+    "body": [
+      "@property",
+      "def read_stat(self) -> str:",
+      "    vissza: str = \"\"",
+      "    for k, v in self.getstat.items():",
+      "        vissza += f\"\\t{k} - {v} db\\n\"",
+      "    return vissza"
+    ],
+    "description": "Read statistics for class"
+  },
+  "Write to file boilerplate": {
+    "prefix": "write",
+    "body": [
+      "with open(\"file_name.txt\", \"w\") as file:",
+      "    ${1:}"
+    ],
+    "description": "Write to file boilerplate"
+  },
+  "Read to file boilerplate": {
+  "prefix": "read",
+  "body": [
+    "with open(\"file_name.txt\", \"r\") as file:",
+    "    ${1:}"
+  ],
+  "description": "Read to file boilerplate"
+}
 }
