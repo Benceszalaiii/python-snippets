@@ -207,5 +207,14 @@
     "    ${1:}"
   ],
   "description": "Read to file boilerplate"
+},
+"Property boilerplate": {
+  "prefix": "prop",
+  "body": [
+    "@property",
+    "def ${1:function}(self, ${2:parameters}):",
+    "    ${3:pass}"
+  ],
+  "description": "Property boilerplate"
 }
 }
