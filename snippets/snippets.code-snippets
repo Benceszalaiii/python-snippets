@@ -164,5 +164,32 @@
                   "    return filtered"
                 ],
                 "description": "Filter class"
+              },
+              "Get statistics for class": {
+                "prefix": "getstat",
+                "body": [
+                  "@property",
+                  "def get_stat(self) -> dict[str, int]:",
+                  "    stat: dict[str, int] = {}",
+                  "    for e in self.lista:",
+                  "        if e.property in stat:",
+                  "            stat[e.property] += 1",
+                  "        else:",
+                  "            stat[e.property] = 1",
+                  "    return stat"
+                ],
+                "description": "Get statistics for class"
+              },
+              "Read statistics for class": {
+                "prefix": "readstat",
+                "body": [
+                  "@property",
+                  "def read_stat(self) -> str:",
+                  "    vissza: str = \"\"",
+                  "    for k, v in self.getstat.items():",
+                  "        vissza += f\"\\t{k} - {v} db\\n\"",
+                  "    return vissza"
+                ],
+                "description": "Read statistics for class"
               }
 }
