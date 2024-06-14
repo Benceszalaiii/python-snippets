@@ -166,7 +166,7 @@
     "description": "Filter class"
   },
   "Get statistics for class": {
-    "prefix": "getstat",
+    "prefix": "stat_get",
     "body": [
       "@property",
       "def get_stat(self) -> dict[str, int]:",
@@ -181,7 +181,7 @@
     "description": "Get statistics for class"
   },
   "Read statistics for class": {
-    "prefix": "readstat",
+    "prefix": "stat_read",
     "body": [
       "@property",
       "def read_stat(self) -> str:",
